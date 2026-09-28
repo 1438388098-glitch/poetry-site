@@ -1,0 +1,71 @@
+# 陌生的你 — 艾苇的诗集
+
+> **English TL;DR**: A personal poetry collection website (2021–2026) by a Chinese poet, built as a minimal static-style site with a pure PHP backend and vanilla HTML/CSS/JS — no frameworks, no database (JSON files only). Features poem browsing, random poem, dark mode, a guestbook, per-poem likes, visitor analytics, and a password-protected admin panel for publishing new work.
+
+> 收录 2021 年至 2026 年的现代诗与仿写诗作，在线展示与访客互动平台。
+
+## 概览
+
+个人诗集网站，包含诗歌展示、排序、随机翻阅、暗色模式、访客留言、访问统计、点赞等功能。
+
+- **作者**：艾苇（炜）
+- **时间跨度**：2021 — 2026
+- **部署**：PHP + 前端静态页面
+
+## 功能特性
+
+| 功能 | 说明 |
+|------|------|
+| 📝 **诗歌展示** | 按时间排序浏览全部诗作 |
+| 🔀 **随机一诗** | 随机翻阅功能 |
+| 🌓 **暗色模式** | 深色/浅色主题切换 |
+| 💬 **访客留言** | 留言板（PHP 后端） |
+| ❤️ **点赞统计** | 每首诗独立点赞计数 |
+| 📊 **访问统计** | 访客追踪（需 PHP 后端） |
+| 🔍 **日志搜索** | 诗作查找功能 |
+| 👑 **管理后台** | `/admin/` 后台管理入口 |
+
+## 快速启动
+
+### 方式一：纯前端浏览（推荐）
+
+直接用浏览器打开 `index.html` 即可浏览全部诗作（留言等功能需后端）。
+
+### 方式二：完整部署（含后端）
+
+需要 PHP 服务器环境：
+
+```bash
+# 使用 PHP 内置服务器
+php -S localhost:8080
+
+# 或部署到 Nginx / Apache
+```
+
+管理后台凭据不入库：部署时复制 `admin/config.example.php` 为 `admin/config.php`，填入管理员用户名与密码哈希（可用 `php -r "echo password_hash('你的密码', PASSWORD_DEFAULT);"` 生成）。
+
+### 方式三：Docker / 阿里云
+
+网站已部署于阿里云 ECS（Nginx + PHP 环境），通过域名访问。
+
+## 目录结构
+
+```
+poetry-site/
+├── index.html              # 主页（诗歌展示）
+├── style.css               # 全部样式
+├── script.js               # 前端交互逻辑
+├── poems.js                # 诗歌数据
+├── about/                  # 关于页面
+├── admin/                  # 管理后台（含凭据模板 config.example.php）
+├── check_access.php        # 访问控制
+├── guestbook.php           # 留言板
+├── likes.php               # 点赞接口
+├── log_search.php          # 搜索日志
+└── track.php               # 访问统计
+```
+
+## 隐私说明
+
+- 所有诗歌内容为原创作品
+- 访客数据仅用于统计，不会外传

@@ -1,0 +1,16 @@
+# PHP
+*.log
+*.cache
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Config
+access_rules.json
+admin/config.php

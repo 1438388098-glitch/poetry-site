@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="艾苇的个人诗集《陌生的你》— 收录2021至2023年的现代诗与仿写诗作">
+  <meta property="og:title" content="陌生的你 — 艾苇的诗集">
+  <meta property="og:description" content="收录2021至2023年的现代诗与仿写诗作">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+  <title>陌生的你</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="readingProgress" class="reading-progress"></div>
+
+  <!-- 顶部导航 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">陌生的你</h1>
+      <p class="site-author">艾苇</p>
+      <p class="site-subtitle">二〇二一 — 二〇二六</p>
+      <div class="header-tools">
+        <button id="sortToggle" class="tool-btn" title="切换排序">↑ 最新</button>
+        <button id="randomBtn" class="tool-btn" title="随机一诗">随机</button>
+        <button id="themeToggle" class="tool-btn" title="切换主题">暗色</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 搜索栏 -->
+  <div class="search-bar">
+    <div class="search-inner">
+      <input type="text" id="searchInput" placeholder="搜索诗作标题或内容…" autocomplete="off">
+      <button id="searchClear" class="search-clear" title="清除搜索">&times;</button>
+    </div>
+  </div>
+
+  <!-- 年份导航 -->
+  <nav class="year-nav" id="yearNav"></nav>
+
+  <!-- 统计卡片 -->
+  <div class="stats-card" id="statsCard"></div>
+
+  <!-- 最受欢迎 -->
+  <div class="ranking-section" id="rankingSection">
+    <span class="ranking-label">最受欢迎</span>
+    <div class="ranking-list" id="rankingList"></div>
+  </div>
+
+  <!-- 收藏夹 -->
+  <div class="fav-filter-wrap">
+    <button id="favFilterBtn" class="fav-filter-btn">♥ 收藏夹</button>
+  </div>
+
+  <!-- 时间线主体 -->
+  <main class="timeline-feed" id="timelineFeed">
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <p>没有找到匹配的诗作</p>
+    </div>
+  </main>
+
+  <!-- 诗作详情弹窗 -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="诗作详情">
+    <div class="modal" id="poemModal">
+      <button class="modal-close" id="modalClose" aria-label="关闭">&times;</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- 个人简介 -->
+  <section class="about-section" id="aboutSection">
+    <h2 class="section-title">关于</h2>
+    <div class="about-content" id="aboutContent">
+      <p style="color:var(--text-tertiary);font-size:0.9rem;">加载中…</p>
+    </div>
+  </section>
+
+  <!-- 留言板 -->
+  <section class="guestbook" id="guestbook">
+    <h2 class="section-title">留言板</h2>
+    <form class="guestbook-form" id="guestbookForm">
+      <input type="text" id="gbName" placeholder="你的名字" required>
+      <textarea id="gbMessage" placeholder="写下你的感想…" rows="3" required></textarea>
+      <button type="submit">留言</button>
+    </form>
+    <div class="guestbook-list" id="guestbookList"></div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2021 – 2023 陌生的你</p>
+    <p class="footer-links">
+      <a href="/about/">关于</a>
+      <span class="footer-sep">/</span>
+      <a href="/admin/">···</a>
+    </p>
+  </footer>
+
+  <!-- 回到顶部 -->
+  <button id="backToTop" class="back-to-top" title="回到顶部">↑</button>
+
+  <script src="poems.js"></script>
+  <script src="script.js?v=5"></script>
+
+  <!-- 分享弹窗 -->
+  <div class="share-overlay" id="shareOverlay">
+    <div class="share-dialog">
+      <button class="modal-close" id="shareClose">&times;</button>
+      <h3>分享诗作</h3>
+      <div class="share-templates" id="shareTemplates">
+        <button class="share-tmpl-btn active" data-tmpl="1">素白</button>
+        <button class="share-tmpl-btn" data-tmpl="2">暖纸</button>
+        <button class="share-tmpl-btn" data-tmpl="3">墨色</button>
+      </div>
+      <div class="share-preview" id="sharePreview"><p style="color:#b5b5b5;font-size:0.85rem;">选择模板生成预览</p></div>
+      <button class="share-download-btn" id="shareDownload">下载图片</button>
+    </div>
+  </div>
+</body>
+</html>
